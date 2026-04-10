@@ -1,0 +1,104 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.simon.ma.ai-cat-plugin</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>Hello Cat - AI Assistant</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://github.com/MMCISAGOODMAN/ai-cat-plugin">SimonMa</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description><![CDATA[
+        <h2>Hello Cat - Professional AI Coding Assistant</h2>
+
+        Hello Cat is an intelligent, user-friendly AI assistant integrated directly into your IntelliJ IDEA development environment. Designed with developers in mind, it provides real-time coding help, intelligent suggestions, and seamless integration into your workflow.<br><br>
+
+        <h3>✨ Key Features</h3>
+
+        <b>🤖 Advanced AI Integration</b><br>
+        • Real-time streaming responses with natural typing animation<br>
+        • Support for OpenAI GPT models and other compatible AI endpoints<br>
+        • Smart fallback responses when AI services are unavailable<br>
+        • Configurable API keys and model selection<br><br>
+
+        <b>🎨 Professional UI Design</b><br>
+        • Clean, modern chat interface optimized for productivity<br>
+        • Perfect message alignment (user right, AI left)<br>
+        • Smooth rounded bubbles with content-based sizing<br>
+        • Automatic scrolling during conversations<br><br>
+
+        <b>💻 Code-Focused Features</b><br>
+        • Intelligent code block detection and formatting<br>
+        • Inline code highlighting and syntax awareness<br>
+        • Markdown support for headers, lists, and formatting<br>
+        • Monospace font optimization for code readability<br><br>
+
+        <b>⚡ Developer Experience</b><br>
+        • Keyboard shortcut (Ctrl+Alt+K) for quick access<br>
+        • Toolbar integration with intuitive controls<br>
+        • Sidebar tab for persistent chat sessions<br>
+        • Auto-hide functionality to keep workspace clean<br>
+        • Motivational quotes to boost productivity<br><br>
+
+        <h3>🚀 Why Choose Hello Cat?</h3>
+
+        • <b>Seamless Integration</b>: Works alongside your existing tools without disruption<br>
+        • <b>Intelligent Context</b>: Understands your coding environment and context<br>
+        • <b>Professional Grade</b>: Built for serious development workflows<br>
+        • <b>Customizable</b>: Configure AI endpoints, models, and behavior to match your needs<br>
+        • <b>Reliable</b>: Graceful degradation when AI services are unavailable<br><br>
+
+        Perfect for individual developers, teams, and anyone seeking an intelligent, responsive coding companion that enhances productivity without sacrificing professionalism.
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.simon.cat.settings.CatSettingsState" />
+        <applicationConfigurable groupId="tools" displayName="Hello Cat Settings" id="com.simon.cat.settings.CatSettingsConfigurable" instance="com.simon.cat.settings.CatSettingsConfigurable" />
+
+        <!-- Add sidebar tab -->
+        <toolWindow factoryClass="com.simon.cat.ui.CatToolWindowFactory" id="Hello Cat" anchor="right" />
+    </extensions>
+
+    <actions>
+        <action id="CatToggleAction" class="com.simon.cat.actions.ToggleCatAction" text="Toggle Hello Cat" description="Show or hide the Hello Cat assistant" icon="AllIcons.Debugger.Db_set_breakpoint">
+            <add-to-group group-id="ToolsMenu" anchor="last" />
+            <add-to-group group-id="NavBarToolBar" anchor="first" />
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt K" />
+        </action>
+
+        <action id="CatSettingsAction" class="com.simon.cat.actions.ShowSettingsAction" text="Hello Cat Settings" description="Open AI Cat configuration">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="CatToggleAction" />
+            <add-to-group group-id="NavBarToolBar" anchor="after" relative-to-action="CatToggleAction" />
+        </action>
+
+        <!-- Create a sidebar tab for persistent chat sessions -->
+        <group id="HelloCatSidebarGroup" text="🐱 Hello Cat" description="AI Coding Assistant">
+            <reference ref="CatToggleAction" />
+            <separator />
+            <reference ref="CatSettingsAction" />
+        </group>
+
+        <!-- Add to Main Toolbar -->
+        <group id="HelloCatToolbarGroup" text="🐱 Hello Cat" popup="true">
+            <reference ref="CatToggleAction" />
+            <separator />
+            <reference ref="CatSettingsAction" />
+        </group>
+    </actions>
+
+    <project-components>
+        <component>
+            <implementation-class>com.simon.cat.ui.CatComponent</implementation-class>
+        </component>
+    </project-components>
+</idea-plugin>

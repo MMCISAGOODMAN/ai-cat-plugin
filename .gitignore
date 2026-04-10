@@ -1,0 +1,171 @@
+# Compiled class files
+*.class
+*.jar
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# JetBrains Rider
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+build/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Gradle
+.gradle/
+build/
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# IDE-specific
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Temporary files
+*.tmp
+*.temp
+
+# Distribution directories
+dist/
+dist-archive/
+release/
+
+# Test coverage reports
+coverage/
+jacoco/
+cobertura.xml
+jacoco.xml
+
+# Documentation builds
+docs/_build/
+docs/api/
+docs/html/
+
+# Cache files
+.cache/
+.pytest_cache/
+
+# Build outputs - large distributable files
+build/distributions/*.jar
+build/libs/*.jar
+
+# IDE-specific build directories
+idea-sandbox/
+pluginVerifierHome/
+
+# Large log files
+logs/*.log
+
+# Temporary plugin installation files
+*.tmp
+*.temp
+
+# Distribution archives
+dist-archive/
+release/
+
+# Plugin verification cache
+pluginVerifier/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ruby
+.ruby-version
+vendor/bundle
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.pnp.*
+
+# PHP
+.php_cs.cache
+.phpunit.result.cache
+
+# Rust
+target/
+
+# Go
+bin/
+pkg/
+
+# Swift
+.build/
+DerivedData/
+
+# Kotlin/Native
+.kotlin/
